@@ -1,3 +1,4 @@
+//go:build amd64 && go1.6
 // +build amd64,go1.6
 
 package geohash
@@ -12,10 +13,7 @@ func cpuid(eaxArg, ecxArg uint32) (eax, ebx, ecx, edx uint32)
 
 // hasBMI2 returns whether the CPU supports Bit Manipulation Instruction Set
 // 2.
-func hasBMI2() bool {
-	_, ebx, _, _ := cpuid(7, 0)
-	return ebx&(1<<8) != 0
-}
+func hasBMI2() bool { _ = "STUB: not implemented"; return false }
 
 // init determines whether to use assembly version by performing CPU feature
 // check.
